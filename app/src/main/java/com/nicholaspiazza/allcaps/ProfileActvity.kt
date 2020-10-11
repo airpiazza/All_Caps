@@ -20,8 +20,10 @@ class ProfileActvity : AppCompatActivity() {
         //set captial textview to string extra
         captial_text.text = cap
 
+        //back button
         val button = back_button
 
+        //finish activity when button clicked
         button.setOnClickListener {
             finish()
         }
