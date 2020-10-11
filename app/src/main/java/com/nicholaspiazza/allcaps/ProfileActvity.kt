@@ -19,5 +19,11 @@ class ProfileActvity : AppCompatActivity() {
 
         //set captial textview to string extra
         captial_text.text = cap
+
+        val button = back_button
+
+        button.setOnClickListener {
+            finish()
+        }
     }
 }
