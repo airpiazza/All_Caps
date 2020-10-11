@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">AllCaps</string>
-    <string name="alabama">Alabama</string>
     <string name="capital">Capital</string>
     <string name="state">State</string>
 </resources>

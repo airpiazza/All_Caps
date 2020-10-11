@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.state_layout.view.*
 
-class MainActivity : AppCompatActivity(), OnStateListener{
+class MainActivity : AppCompatActivity(), OnStateListener {
 
     //variable for the recycler view
     private lateinit var recyclerView: RecyclerView
@@ -23,23 +23,112 @@ class MainActivity : AppCompatActivity(), OnStateListener{
     private val TAG = "MainActivity"
 
     //String array of all the states
-    val states = arrayOf("Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-    "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana",
-    "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
-    "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
-    "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
-    "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
-    "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming")
+    val states = arrayOf(
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+    )
 
     //String array for all the capitals
-    val capitals = arrayOf("Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento",
-    "Denver", "Hartford", "Dover", "Tallahassee", "Atlanta", "Honolulu", "Boise", "Springfield",
-    "Indianapolis", "Des Moines", "Topeka", "Frankfort", "Baton Rouge", "Augusta", "Annapolis",
-    "Boston", "Lansing", "Saint Paul", "Jackson", "Jefferson City", "Helena", "Lincoln",
-    "Carson City", "Concord", "Trenton", "Santa Fe", "Albany", "Raleigh", "Bismarck", "Columbus",
-    "Oklahoma City", "Salem", "Harrisburg", "Providence", "Columbia", "Pierre", "Nashville",
-    "Austin", "Salt Lake City", "Montpelier", "Richmond", "Olympia", "Charleston", "Madison",
-    "Cheyenne")
+    val capitals = arrayOf(
+        "Montgomery",
+        "Juneau",
+        "Phoenix",
+        "Little Rock",
+        "Sacramento",
+        "Denver",
+        "Hartford",
+        "Dover",
+        "Tallahassee",
+        "Atlanta",
+        "Honolulu",
+        "Boise",
+        "Springfield",
+        "Indianapolis",
+        "Des Moines",
+        "Topeka",
+        "Frankfort",
+        "Baton Rouge",
+        "Augusta",
+        "Annapolis",
+        "Boston",
+        "Lansing",
+        "Saint Paul",
+        "Jackson",
+        "Jefferson City",
+        "Helena",
+        "Lincoln",
+        "Carson City",
+        "Concord",
+        "Trenton",
+        "Santa Fe",
+        "Albany",
+        "Raleigh",
+        "Bismarck",
+        "Columbus",
+        "Oklahoma City",
+        "Salem",
+        "Harrisburg",
+        "Providence",
+        "Columbia",
+        "Pierre",
+        "Nashville",
+        "Austin",
+        "Salt Lake City",
+        "Montpelier",
+        "Richmond",
+        "Olympia",
+        "Charleston",
+        "Madison",
+        "Cheyenne"
+    )
 
     //onCreate Method
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +142,14 @@ class MainActivity : AppCompatActivity(), OnStateListener{
     }
 
     //RecyclerView adapter class with string array field and OnStateListener object field
-    class TheAdapter(private val theStates: Array<String>, private val aStateListener: OnStateListener): RecyclerView.Adapter<TheAdapter.TheViewHolder>(){
+    class TheAdapter(
+        private val theStates: Array<String>,
+        private val aStateListener: OnStateListener
+    ) : RecyclerView.Adapter<TheAdapter.TheViewHolder>() {
 
         //ViewHolder class with View object field, OnStateListener object Field, and an onClickListener on the the View field
-        class TheViewHolder(val view: View, aStateListener: OnStateListener) : RecyclerView.ViewHolder(view){
+        class TheViewHolder(val view: View, aStateListener: OnStateListener) :
+            RecyclerView.ViewHolder(view) {
             init {
                 view.setOnClickListener {
 
@@ -74,7 +167,8 @@ class MainActivity : AppCompatActivity(), OnStateListener{
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TheViewHolder {
 
             //inflate layout of state layout
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.state_layout, parent, false)
+            val view =
+                LayoutInflater.from(parent.context).inflate(R.layout.state_layout, parent, false)
 
             //pass in View object and OnStateListener object
             return TheViewHolder(view, aStateListener)
@@ -115,7 +209,7 @@ class MainActivity : AppCompatActivity(), OnStateListener{
 }
 
 //implemented by MainActivity
-interface OnStateListener{
+interface OnStateListener {
 
     //implemented in MainActivity
     fun onStateClick(position: Int)
